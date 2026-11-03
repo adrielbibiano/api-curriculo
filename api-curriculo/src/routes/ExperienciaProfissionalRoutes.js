@@ -1,23 +1,32 @@
-
-import express from "express";
+import { Router } from "express";
 
 import {
   listarExperienciasProfissionais,
   criarExperienciaProfissional,
+  atualizarExperienciaProfissional,
+  excluirExperienciaProfissional,
 } from "../controllers/ExperienciaProfissionalController.js";
 
-const router = express.Router();
+const router = Router();
 
-// Listar experiências profissionais de uma pessoa
 router.get(
   "/pessoas/:pessoaId/experiencias-profissionais",
   listarExperienciasProfissionais
 );
 
-// Cadastrar experiência profissional para uma pessoa
 router.post(
   "/pessoas/:pessoaId/experiencias-profissionais",
   criarExperienciaProfissional
+);
+
+router.put(
+  "/pessoas/:pessoaId/experiencias-profissionais/:experienciaId",
+  atualizarExperienciaProfissional
+);
+
+router.delete(
+  "/pessoas/:pessoaId/experiencias-profissionais/:experienciaId",
+  excluirExperienciaProfissional
 );
 
 export default router;

@@ -1,23 +1,32 @@
-
-import express from "express";
+import { Router } from "express";
 
 import {
   listarExperienciasAcademicas,
   criarExperienciaAcademica,
+  atualizarExperienciaAcademica,
+  excluirExperienciaAcademica,
 } from "../controllers/ExperienciaAcademicaController.js";
 
-const router = express.Router();
+const router = Router();
 
-// Listar experiências acadêmicas de uma pessoa
 router.get(
   "/pessoas/:pessoaId/experiencias-academicas",
   listarExperienciasAcademicas
 );
 
-// Cadastrar experiência acadêmica para uma pessoa
 router.post(
   "/pessoas/:pessoaId/experiencias-academicas",
   criarExperienciaAcademica
+);
+
+router.put(
+  "/pessoas/:pessoaId/experiencias-academicas/:experienciaId",
+  atualizarExperienciaAcademica
+);
+
+router.delete(
+  "/pessoas/:pessoaId/experiencias-academicas/:experienciaId",
+  excluirExperienciaAcademica
 );
 
 export default router;

@@ -5,6 +5,8 @@ import "./models/index.js";
 import pessoaRoutes from "./routes/PessoaRoutes.js";
 import experienciaAcademicaRoutes from "./routes/ExperienciaAcademicaRoutes.js";
 import experienciaProfissionalRoutes from "./routes/ExperienciaProfissionalRoutes.js";
+import projetoRoutes from "./routes/ProjetoRoutes.js";
+import habilidadeRoutes from "./routes/HabilidadeRoutes.js";
 
 const app = express();
 
@@ -15,6 +17,8 @@ app.use(express.json());
 app.use("/pessoas", pessoaRoutes);
 app.use("/", experienciaAcademicaRoutes);
 app.use("/", experienciaProfissionalRoutes);
+app.use("/", projetoRoutes);
+app.use("/", habilidadeRoutes);
 
 app.get("/", (req, res) => {
   res.json({
